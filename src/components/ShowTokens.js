@@ -65,6 +65,17 @@ else bchjs = new BCHJS({ restURL: TESTNET3 })
     
   }, [])
    
+     
+      if (tokenArray.length === 0) {
+        return (
+          <main>
+            <div className='section'>
+              <h2>Wait for SLP info...</h2>
+              
+            </div>
+          </main>
+        )
+      } 
       if (loading) {
         return (
           <div>
@@ -73,16 +84,6 @@ else bchjs = new BCHJS({ restURL: TESTNET3 })
           </div>
         )
       } 
-      if (tokenArray.length === 0) {
-        return (
-          <main>
-            <div className='section'>
-              <h2>Not Found</h2>
-              
-            </div>
-          </main>
-        )
-      }
       return tokenArray.map((item)=> {
         return (
           <div key={item.id}>

@@ -74,7 +74,7 @@ useEffect(() => {
       return (
         <main>
           <div className='section'>
-            <h2>Not Found</h2>
+            <h2>No BCH Found</h2>
             
           </div>
         </main>
