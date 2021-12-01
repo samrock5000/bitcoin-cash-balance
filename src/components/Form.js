@@ -1,12 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import CheckBalance from './CheckBalance';
+import ShowTokens from "./ShowTokens";
 
-//const BCHJS = require("@psf/bch-js")
-//let bchjs = new BCHJS()
-  
-
- 
 
 function Form() {
   const [address, setAddress] = useState('')
@@ -14,7 +10,7 @@ function Form() {
  
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(searchValue.current.value)
+    //console.log(searchValue.current.value)
     
     
     }
@@ -51,6 +47,8 @@ function Form() {
                 <div className="btn-container2 button">
                   <div> 
                   <CheckBalance props={searchValue.current.value}/>
+                  <ShowTokens props={searchValue.current.value}/>
+                 
                   </div>           
               </div>
                      

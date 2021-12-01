@@ -4,6 +4,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import Loading from './Loading';
+import UsdPrice from './UsdPrice';
 
 
 
@@ -42,12 +43,8 @@ const [loading, setLoading] = useState(true)
     // first get BCH balance
     try {
     const balance = await bchjs.Electrumx.balance(props.props)
-  
+     
     const result =  [balance]
-
-    
-    
-    
 
     setLoading(false)
     setResult(result)
@@ -58,8 +55,11 @@ const [loading, setLoading] = useState(true)
     
   }
 }
+
+
 useEffect(() => {
   GetBalance()
+  
 }, [])
  
     if (loading) {
@@ -83,17 +83,25 @@ useEffect(() => {
     
   return result.map((item)=> {
     return (
-      <div key={item.id}>
-       
-         <h1 className='section' >
-           Balance:{" "} 
-         
-         {bchjs.BitcoinCash.toBitcoinCash(item.balance.confirmed)}
-          </h1>
-         
-      </div>
+      <div id="body">
+      
+          <div key={item.id}>
+          
+            <h2 className='section' >
+              Balance:{" "} 
+            
+            {bchjs.BitcoinCash.toBitcoinCash(item.balance.confirmed)}
+              <h2>
+              <UsdPrice balance={bchjs.BitcoinCash.toBitcoinCash(item.balance.confirmed)}/>
+              </h2>
+            
+            
+              </h2>
+            
+          </div>
+       </div>
   )
-  })
+  });
  
 }
 
