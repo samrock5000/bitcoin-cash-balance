@@ -19,41 +19,38 @@ let bchjs
 if (NETWORK === 'mainnet') bchjs = new BCHJS({ restURL: BCHN_MAINNET })
 else bchjs = new BCHJS({ restURL: TESTNET3 })
 
-
-    //const slpInfo = await bchjs.SLP.Utils.list(props.props)
-
-    //const [loading, setLoading] = useState(true)
     const [loading, setLoading] = useState(false)
     const [tokenArray, setToken] = useState([])
     //Get the balance of the address.
         const getTokeninfo = async  () => {
            
-         setLoading(true)
+          setLoading(true)
 
             try {
             const toSlpAddr = await bchjs.SLP.Address.toSLPAddress(props.props)
             const slpInfo = await bchjs.SLP.Utils.balancesForAddress(toSlpAddr)
-            const tokenInfo = await bchjs.SLP.Utils.list(slpInfo[0].tokenId);
-         
-               // 
-             //  const tokenTostring = JSON.stringify(tokenInfo, null, 2)
-            // setLoading(false)
            
+            const tokenInfo = await bchjs.SLP.Utils.list(slpInfo[0].tokenId);
+                //  const tokenTostring = JSON.stringify(tokenInfo, null, 2)
+            
+             
          // console.log(tokenInfo)
             const TokDetails = {
-                name: tokenInfo.name,
-                symbol: tokenInfo.symbol,
-                balance: slpInfo[0].balance,
-                blockCreated: tokenInfo.blockCreated
-                
-            }
-            const tokenArray = [TokDetails]
-            setToken(tokenArray)
+              name: tokenInfo.name,
+              symbol: tokenInfo.symbol,
+              balance: slpInfo[0].balance,
+              blockCreated: tokenInfo.blockCreated
+              
+          }
+        const tokenArray = [TokDetails]
+            //console.log(tokenArray)
+      
             setLoading(false)
-           // console.log(TokDetails)
-               // console.log(JSON.stringify(slpInfo, null, 2))
+            setToken(tokenArray)
+                   
+                
             } catch (error) {
-            //  setLoading(false)
+                setLoading(false)
                 console.log(error)
                 
             }
@@ -64,26 +61,27 @@ else bchjs = new BCHJS({ restURL: TESTNET3 })
     getTokeninfo()
     
   }, [])
-   
-     
-      if (tokenArray.length === 0) {
-        return (
-          <main>
-            <div className='section'>
-              <h2>Wait for SLP info...</h2>
-              
-            </div>
-          </main>
-        )
-      } 
-      if (loading) {
+
+   if (loading) {
         return (
           <div>
             <h2>Loading SLP info</h2>
-            <Loading />
+              <Loading />
           </div>
         )
       } 
+        if (tokenArray.status = "404") {
+          return (
+            <main>
+              <div className='section'>
+                <h2>No SLP tokens</h2>
+                
+              </div>
+            </main>
+          )
+          
+        }    
+   
       return tokenArray.map((item)=> {
         return (
           <div key={item.id}>
