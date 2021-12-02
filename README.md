@@ -1,5 +1,7 @@
 Live Demo: https://bchbalance.netlify.app/
 
+On IPFS: https://bafybeiezk4hbzci2ftgaqrtuihup5cflwawtk2khyhkljbhww4kzzpurru.ipfs.dweb.link/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
