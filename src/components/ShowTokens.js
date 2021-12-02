@@ -44,7 +44,7 @@ else bchjs = new BCHJS({ restURL: TESTNET3 })
           }
         const tokenArray = [TokDetails]
             //console.log(tokenArray)
-      
+            console.log(tokenArray.status)
             setLoading(false)
             setToken(tokenArray)
                    
@@ -69,8 +69,9 @@ else bchjs = new BCHJS({ restURL: TESTNET3 })
               <Loading />
           </div>
         )
+
       } 
-        if (tokenArray.status = "404") {
+        if (tokenArray.length === 0) {
           return (
             <main>
               <div className='section'>
