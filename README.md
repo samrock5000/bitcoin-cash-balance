@@ -1,3 +1,5 @@
+Web app that shows your bitcoin cash balance and slp info
+
 Live Demo: https://bchbalance.netlify.app/
 
 On IPFS: https://bafybeiezk4hbzci2ftgaqrtuihup5cflwawtk2khyhkljbhww4kzzpurru.ipfs.dweb.link/
