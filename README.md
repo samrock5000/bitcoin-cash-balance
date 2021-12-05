@@ -1,4 +1,4 @@
-Web app that shows your bitcoin cash balance and slp info
+Web app that shows your bitcoin cash balance and slp info :alien:
 
 Live Demo: https://bchbalance.netlify.app/
 
