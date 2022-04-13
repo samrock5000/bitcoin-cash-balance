@@ -1,6 +1,6 @@
 Web app that shows your bitcoin cash balance and slp info :alien:
 
-Live Demo: bchcashbalance.netlify.app
+Live Demo: https://bchcashbalance.netlify.app
 
 On IPFS: https://bafybeiezk4hbzci2ftgaqrtuihup5cflwawtk2khyhkljbhww4kzzpurru.ipfs.dweb.link/ "api needs update v5"
 
